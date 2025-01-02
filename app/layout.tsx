@@ -13,11 +13,11 @@ export const metadata = {
     ? new URL(`https://${process.env.VERCEL_URL}`)
     : undefined,
   title: {
-    default: 'StockBot powered by Groq',
-    template: `%s - StockBot powered by Groq`
+    default: 'Escape Stock Analysis Bot',
+    template: `%s - Escape Stock Analysis Bot`
   },
   description:
-    'Lightning Fast AI Chatbot that Responds With Live Interactive Stock Charts, Financials, News, Screeners, and More.',
+    'An advanced AI-powered chatbot providing live interactive stock charts, financials, news, screeners, and more.',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
@@ -46,17 +46,23 @@ export default function RootLayout({ children }: RootLayoutProps) {
           GeistMono.variable
         )}
       >
+        {/* Notificaciones */}
         <Toaster position="top-center" />
         <Providers
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark" // Cambiado a modo oscuro por defecto
           enableSystem
           disableTransitionOnChange
         >
           <div className="flex flex-col min-h-screen">
+            {/* Encabezado personalizado */}
             <Header />
-            <main className="flex flex-col flex-1 bg-muted/50">{children}</main>
+            {/* Contenido principal */}
+            <main className="flex flex-col flex-1 bg-black text-white">
+              {children}
+            </main>
           </div>
+          {/* Tema deshabilitado */}
           {/* <ThemeToggle /> */}
         </Providers>
       </body>
